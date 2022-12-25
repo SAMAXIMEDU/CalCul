@@ -1,0 +1,142 @@
+﻿<Window x:Class="CalCulWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalCulWPF"
+        mc:Ignorable="d"
+        Title="Calculator" Height="750" Width="390">
+	<Window.Resources>
+		<local:MainViewModel x:Key="Model"/>
+	</Window.Resources>
+
+	<Grid DataContext="{StaticResource Model}" >
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="2*"/>
+		</Grid.RowDefinitions>
+
+		<TextBox x:Name="textBox" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" 
+                 FontSize="40"
+                 VerticalContentAlignment="Bottom"
+                 Text="{Binding Screen}"
+                 Background="White"
+                 TextWrapping="Wrap" IsEnabled="False" BorderThickness="0,0,0,0"/>
+
+
+		<Button Content="MC" Grid.Column="0" Grid.Row="1"
+                Command="{Binding ButtonPressedCommand}" 
+                CommandParameter="MC"
+                Background="#FF54F3FF"
+                FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+		<Button Content="MS+"  Grid.Column="1" Grid.Row="1"
+                Command="{Binding ButtonPressedCommand}" 
+                CommandParameter="MS"
+                Background="#FF54F3FF"
+                FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+		<Button Content="MR"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1"
+                Command="{Binding ButtonPressedCommand}" 
+                CommandParameter="MR"
+                Background="#FF54F3FF"
+                FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+		<Button Content="{Binding LastAction}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1"
+                Command="{Binding ButtonPressedCommand}" 
+                CommandParameter="AC"
+                FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,0" IsEnabled="False" Foreground="#FF8C6363" Background="#FFFF2828" BorderBrush="#FF90A923"/>
+
+		<Button Content="AC" Grid.Column="0" Grid.Row="2"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="AC"
+                Background="White"
+                FontSize="24" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"/>
+		<Button Content="("  Grid.Column="1" Grid.Row="2"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="("
+                Background="White"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content=")"  Grid.Column="2" Grid.Row="2"
+                Command="{Binding ButtonPressedCommand}" CommandParameter=")"
+                Background="White"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="÷"  Grid.Column="3" Grid.Row="2"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="/"
+                Background="#FFDA00FF"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+
+		<Button Content="7" Grid.Column="0" Grid.Row="3"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="7"
+                FontSize="24" Background="#FFFF7979" BorderThickness="0,0,0,0"/>
+		<Button Content="8" Grid.Column="1" Grid.Row="3"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="8"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="9" Grid.Column="2" Grid.Row="3"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="9"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="×" Grid.Column="3" Grid.Row="3"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="*"
+                Background="#FF37FF00"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+
+		<Button Content="4" Grid.Column="0" Grid.Row="4"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="4"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="5" Grid.Column="1" Grid.Row="4"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="5"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="6" Grid.Column="2" Grid.Row="4"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="6"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="-" Grid.Column="3" Grid.Row="4"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="-"
+                Background="#FF37FF00"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+
+		<Button Content="1" Grid.Column="0" Grid.Row="5"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="1"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="2" Grid.Column="1" Grid.Row="5"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="2"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="3" Grid.Column="2" Grid.Row="5"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="3"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="+" Grid.Column="3" Grid.Row="5"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="+"
+                Background="#FF37FF00"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+
+		<Button Content="←" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="1" 
+                Command="{Binding ButtonPressedCommand}" CommandParameter="DEL"
+                Background="#FF65B2FF"
+                FontSize="36" BorderThickness="0,0,0,0"/>
+		<Button Content="0" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1" 
+                Command="{Binding ButtonPressedCommand}" CommandParameter="0"
+                Background="#FFFF7979"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="," Grid.Column="2" Grid.Row="6"
+                Command="{Binding ButtonPressedCommand}" CommandParameter=","
+                Background="#FF65B2FF"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+		<Button Content="=" Grid.Column="3" Grid.Row="6"
+                Command="{Binding ButtonPressedCommand}" CommandParameter="="
+                Background="#FF37FF00"
+                FontSize="24" BorderThickness="0,0,0,0"/>
+	</Grid>
+</Window>
